@@ -8,7 +8,7 @@ import CreateTodoButton from "./components/CreateTodoButton";
 import "./App.css";
 
 const todos = [
-  { text: "Cortar cebolla", completed: false },
+  { text: "Cortar cebolla", completed: true },
   { text: "Tormar el curso de intro a react", completed: false },
   { text: "Llorar con la llorona", completed: false },
 ];
