@@ -29,6 +29,10 @@ function App() {
     setTodos(elements);
   }
 
+  const deleteTodo= (todo)=>{
+    setTodos(todos.filter(item => item !== todo));
+  }
+
   return (
     <React.Fragment>
       <TodoCounter 
@@ -42,6 +46,7 @@ function App() {
             key={todo.text}
             todo={todo}
             completeTodo={completeTodo}
+            deleteTodo={deleteTodo}
           />
         ))}
       </TodoList>
