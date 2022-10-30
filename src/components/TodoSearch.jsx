@@ -1,20 +1,28 @@
 import React, { useState } from 'react'
 import '../styles/TodoSearch.css'
 
-const TodoSearch = () => {
+const TodoSearch = (props) => {
   const [searchValue, setSearchValue] = useState("")
   
 const onSearchValueChange = (event)=>{
   setSearchValue(event.target.value)
 }
 
+const _handleKeyDown=  (e) => {
+  if (e.key === 'Enter' && searchValue !== '') {
+    console.log('do validate', searchValue);
+    props.addTodo(searchValue);
+    setSearchValue('');
+  }
+}
+
   return (<>
     <input className="TodoSearch" 
       value={searchValue} 
-      placeholder="Cebolla"
+      placeholder="Introduce aqui tu tarea..."
       onChange={onSearchValueChange}
+      onKeyDown={_handleKeyDown}
     />
-    <p>{searchValue}</p>
     </>
   )
 }
