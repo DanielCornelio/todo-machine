@@ -16,12 +16,19 @@ function App() {
   ]);
 
   const addTodo = (todo)=>{
-    console.log("agregando tarea")
     setTodos(todos.concat({
       text:todo, 
       completed: false,
     }))
   }
+
+  const completeTodo = (todo)=>{
+    const index = todos.findIndex((item)=> item === todo);
+    const elements = [...todos];
+    elements[index] = {...todo, completed:!todo.completed};
+    setTodos(elements);
+  }
+
   return (
     <React.Fragment>
       <TodoCounter />
@@ -30,8 +37,8 @@ function App() {
         {todos.map((todo) => (
           <TodoItem
             key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
+            todo={todo}
+            completeTodo={completeTodo}
           />
         ))}
       </TodoList>

@@ -10,7 +10,6 @@ const onSearchValueChange = (event)=>{
 
 const _handleKeyDown=  (e) => {
   if (e.key === 'Enter' && searchValue !== '') {
-    console.log('do validate', searchValue);
     props.addTodo(searchValue);
     setSearchValue('');
   }
