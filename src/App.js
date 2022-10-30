@@ -31,7 +31,10 @@ function App() {
 
   return (
     <React.Fragment>
-      <TodoCounter />
+      <TodoCounter 
+      completed={todos.filter(item => item.completed).length} 
+      tasksCount={todos.length}
+      />
       <TodoSearch addTodo={addTodo} />
       <TodoList>
         {todos.map((todo) => (
