@@ -7,7 +7,9 @@ const TodoItem = (props) => {
     props.completeTodo(props.todo);
   }
   const onDelete =  ()=>{
-    alert('borraste el todo ' + props.todo.text)
+    if(window.confirm(`Desea eliminar la tarea de ${props.todo.text}?`)){
+      props.deleteTodo(props.todo);
+    }
   }
 
   return (
